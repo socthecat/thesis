@@ -1,1 +1,267 @@
 /* You can add global styles to this file, and also import other style files */
+@media only screen and (min-width: 1000px) {
+    h3 {
+        font-size: 3vw;
+    }
+    h3:before {
+        width: 3.2vw;
+        height: 3.2vw;
+    }
+    input[type="text"],
+    input[type="password"] {
+        padding: 2vw;
+        height: 4vw;
+        font-size: 1.7vw;
+    }
+    select {
+        height: 4vw;
+        font-size: 1.7vw;
+    }
+    button:focus,
+    input[type="text"]:focus,
+    input[type="password"]:focus,
+    select:focus {
+        box-shadow: 0 0 0.5vw #101010;
+    }
+    input[type="text"],
+    input[type="password"],
+    select {
+        box-shadow: 0 0 0.2vw #000d49;
+    }
+    button,
+    input[type="submit"] {
+        height: 4vw;
+        width: 30vw;
+        font-size: 2vw;
+    }
+    form {
+        width: 70vw;
+    }
+    form * {
+        margin: 0.3vw 0;
+    }
+    .error-string {
+        font-size: 1.7vw;
+    }
+}
+@media only screen and (max-width: 999px) {
+    h3 {
+        font-size: 5vw;
+    }
+    h3:before {
+        width: 5.5vw;
+        height: 5.5vw;
+    }
+    input[type="text"],
+    input[type="password"] {
+        padding: 3vw;
+        height: 6vw;
+        font-size: 2vw;
+    }
+    select {
+        height: 6vw;
+        font-size: 2vw;
+    }
+    button:focus,
+    input[type="text"]:focus,
+    input[type="password"]:focus ,
+    select:focus {
+        box-shadow: 0 0 0.7vw #101010;
+    }
+    input[type="text"],
+    input[type="password"],
+    select {
+        box-shadow: 0 0 0.4vw #000d49;
+    }
+    button,
+    input[type="submit"] {
+        height: 5vw;
+        width: 25vw;
+        font-size: 2.5vw;
+    }
+    form {
+        width: 80vw;
+    }
+    form * {
+        margin: 0.6vw 0;
+    }
+    .error-string {
+        font-size: 2vw;
+    }
+}
+@media only screen and (max-width: 800px) {
+    input[type="text"],
+    input[type="password"],
+    select {
+        font-size: 2.5vw;
+    }
+    button,
+    input[type="submit"] {
+        font-size: 3vw;
+    }
+    .error-string {
+        font-size: 2.3vw;
+    }
+}
+@media only screen and (max-width: 600px) {
+    h3 {
+        font-size: 40px;
+    }
+    h3:before {
+        width: 50px;
+        height: 50px;
+    }
+    input[type="text"],
+    input[type="password"] {
+        padding: 25px;
+        height: 60px;
+        font-size: 25px;
+    }
+    select {
+        height: 60px;
+        font-size: 25px;
+    }
+    button:focus,
+    input[type="text"]:focus,
+    input[type="password"]:focus {
+        box-shadow: 0 0 10px #101010;
+    }
+    input[type="text"],
+    input[type="password"],
+    select {
+        box-shadow: 0 0 5px #000d49;
+    }
+    button,
+    input[type="submit"] {
+        height: 50px;
+        width: 240px;
+        font-size: 25px;
+    }
+    form {
+        width: 90vw;
+    }
+    form * {
+        margin: 10px 0;
+    }
+    .error-string {
+        font-size: 20px;
+    }
+}
+html,
+body {
+    font-family: "Open Sans", sans-serif;
+    background-color: #2c2c2c;
+    color: #ddd;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+}
+app-root {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+}
+cw-start,
+cw-install-metamask,
+cw-mint-form,
+cw-send-form,
+cw-success {
+    margin: auto 0;
+}
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+h3 {
+    font-family: Rubik;
+    text-transform: uppercase;
+    color: #eaeaea;
+    position: relative;
+    text-decoration: underline;
+    text-decoration-color: #61a5ff;
+    text-align: center;
+    margin-bottom: 1.5vw;
+}
+h3:before {
+    content: "";
+    background-color: #9cc7ff;
+    position: absolute;
+    transform: skew(-3deg, -20deg) rotate(15deg);
+    mix-blend-mode: soft-light;
+}
+h3:after {
+    content: "!";
+    color: #9cc7ff;
+}
+input[type="text"],
+input[type="password"] {
+    background: #bff5ff;
+    border: 0;
+    border-radius: 10vw;
+    color: #003757;
+}
+button:focus,
+input[type="text"]:focus,
+input[type="password"]:focus {
+    outline: none;
+}
+button,
+input[type="submit"] {
+    background-color: #61a5ff;
+    border: 0;
+    border-radius: 100vw;
+    color: #131d52;
+    align-self: center;
+    cursor: pointer;
+    text-shadow: 0 0 10px #00295e;
+}
+button:active,
+input[type="submit"]:active {
+    transform: scale(0.9);
+}
+input:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+form,
+section {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+p {
+    font-size: 20px;
+    margin: 0 auto 15px auto;
+}
+a {
+    color: #5da0f7;
+    text-decoration: none;
+    background: rgb(212 230 253 / 11%);
+    padding: 0 5px;
+    border-radius: 5px;
+}
+select {
+    border: none;
+    margin: 0;
+    font-family: inherit;
+    width: 100%;
+    cursor: pointer;
+    line-height: 1.1;
+    background-color: #bff5ff;
+    color: #003757;
+    border-radius: 10vw;
+    text-shadow: 0 0 10px #00295e;
+  }
+a:hover {
+    text-decoration: underline;
+}
+button[disabled] {
+    opacity: .5;
+}
+@supports (-ms-ime-align: auto) {
+    h3:before {
+        display: none;
+    }
+}

@@ -1,0 +1,10 @@
+<form [formGroup]="form" (ngSubmit)="mint()">
+  <label for="uri">Diploma ID</label>
+  <select formControlName="uri" id="uri">
+    <option *ngFor="let id of possibleIds; let i = index" [value]="id">
+      {{ id }}
+    </option>
+  </select>
+
+  <button [disabled]="!form.valid">Mint</button>
+</form>
