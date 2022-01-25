@@ -41,7 +41,6 @@ testem.log
 .DS_Store
 Thumbs.db
 
-node_modules
 .env
 coverage
 coverage.json
