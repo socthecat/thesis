@@ -4,6 +4,7 @@
       Congratulations! You have just succesfully minted a diploma NFT and sent it to your student.
   </p>
   <p>
+      <!-- The links here are populated in the production Mumbai Testnet build. The code in this branch is for local use. -->
       The token was succesfully sent from <a href="">{{ collegeAddress }}</a> to <a href="">{{ studentAddress }}</a>
   </p>
   <p *ngIf="tokenURI$ | async as tokenURI; else loadingBlock">

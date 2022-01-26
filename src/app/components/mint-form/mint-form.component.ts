@@ -30,7 +30,6 @@ export class MintFormComponent implements OnInit, OnDestroy {
 
   get tokenId(): number {
     const uri = this.form.getRawValue().uri;
-    console.log(uri, this.form.getRawValue())
     return parseInt(uri.slice(5, 6))
   }
 
