@@ -6,5 +6,8 @@
     </option>
   </select>
 
-  <button [disabled]="!form.valid">Mint</button>
+  <button [disabled]="!form.valid || loading">
+    <ng-container *ngIf="!loading">Mint</ng-container>
+    <ng-container *ngIf="loading">Loading...</ng-container>
+  </button>
 </form>

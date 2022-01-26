@@ -3,5 +3,8 @@
   <label for="student">Student wallet address</label>
   <input type="text" name="student" formControlName="student">
 
-  <button [disabled]="!form.valid">Send</button>
+  <button [disabled]="!form.valid || loading">
+    <ng-container *ngIf="!loading">Send</ng-container>
+    <ng-container *ngIf="loading">Loading...</ng-container>
+  </button>
 </form>

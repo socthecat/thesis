@@ -21,6 +21,7 @@ export class MintFormComponent implements OnInit, OnDestroy {
   ];
   form: FormGroup;
   checkMinted$: Subscription;
+  loading: boolean;
 
   constructor(
     private contractsService: ContractsService,
@@ -48,6 +49,7 @@ export class MintFormComponent implements OnInit, OnDestroy {
 
   async mint() {
     try {
+      this.loading = true;
       const result = await this.contractsService.contract.safeMint(
         this.contractsService.collegeAddress.value,
         this.metadataURI,
@@ -60,9 +62,11 @@ export class MintFormComponent implements OnInit, OnDestroy {
         tokenId: this.tokenId
       });
       this.toastr.success('Diploma succesfully minted!');
+      this.loading = false;
       this.router.navigate(['/send']);
     } catch (error) {
       this.toastr.error('An error occured while minting');
+      this.loading = false;
     }
   }
 
@@ -75,11 +79,13 @@ export class MintFormComponent implements OnInit, OnDestroy {
   private checkMinted() {
     this.checkMinted$ = this.form.valueChanges.subscribe(async value => {
       if (this.form.get('uri')?.value) {
-        this.form.setErrors({'loading': true});
+        this.loading = true;
         const isContentOwned = await this.contractsService.contract.isContentOwned(this.metadataURI);
+        this.loading = false;
         if (isContentOwned) {
           this.form.get('uri')?.setValue(null);
           this.toastr.info('This diploma was already issued. Please select another one');
+          this.form.setErrors({'owned': true});
         } else {
           this.form.setErrors(null);
         }

@@ -10,6 +10,7 @@ import { ContractsService } from 'src/app/services/contracts.resolver';
   styleUrls: ['./start.component.scss']
 })
 export class StartComponent implements OnInit {
+  loading: boolean = false;
 
   constructor(
     private contractsService: ContractsService,
@@ -22,12 +23,14 @@ export class StartComponent implements OnInit {
 
   async connectWallet() {
     try {
+      this.loading = true;
       const accounts: Array<string> = await window.ethereum.request({ method: "eth_requestAccounts" });
       this.contractsService.collegeAddress.next(accounts[0]);
       this.toastr.success('Account connected!', 'Success!');
       this.router.navigate(['/mint']);
     } catch(error) {
       this.toastr.error('An error occured while connecting an account', 'Error!');
+      this.loading = false;
     }
   }
 

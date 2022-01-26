@@ -11,6 +11,7 @@ import { ContractsService } from 'src/app/services/contracts.resolver';
 })
 export class SendFormComponent implements OnInit {
   form: FormGroup;
+  loading: boolean;
 
   constructor(
     private contractsService: ContractsService,
@@ -34,6 +35,7 @@ export class SendFormComponent implements OnInit {
 
   async send() {
     try {
+      this.loading = true;
       // sendToStudent(uint256 tokenId, address college, address student)
       const tokenId = this.contractsService.tokenData.value?.tokenId;
       const college = this.contractsService.collegeAddress.value;
@@ -54,6 +56,7 @@ export class SendFormComponent implements OnInit {
       this.router.navigate(['/success']);
     } catch(error) {
       this.toastr.error('An error occured while sending.');
+      this.loading =  false;
     }
   }
 
