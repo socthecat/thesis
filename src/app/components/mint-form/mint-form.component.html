@@ -1,6 +1,6 @@
 <form [formGroup]="form" (ngSubmit)="mint()">
   <label for="uri">Diploma ID</label>
-  <select formControlName="uri" id="uri">
+  <select formControlName="uri" id="uri" [disabled]="loading">
     <option *ngFor="let id of possibleIds; let i = index" [value]="id">
       {{ id }}
     </option>

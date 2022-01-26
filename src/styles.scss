@@ -257,8 +257,11 @@ select {
 a:hover {
     text-decoration: underline;
 }
-button[disabled] {
+button[disabled],
+input[disabled],
+select[disabled] {
     opacity: .5;
+    cursor: default;
 }
 @supports (-ms-ime-align: auto) {
     h3:before {

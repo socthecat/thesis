@@ -1,7 +1,7 @@
 <form [formGroup]="form" (ngSubmit)="send()">
   <img [src]="'https://gateway.pinata.cloud/ipfs/' + metadataURI" alt="Diploma" />
   <label for="student">Student wallet address</label>
-  <input type="text" name="student" formControlName="student">
+  <input type="text" name="student" formControlName="student" [disabled]="loading">
 
   <button [disabled]="!form.valid || loading">
     <ng-container *ngIf="!loading">Send</ng-container>
