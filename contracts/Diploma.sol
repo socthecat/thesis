@@ -17,7 +17,7 @@ contract Diploma is ERC721, ERC721URIStorage, Ownable {
         return "ipfs://";
     }
 
-    function safeMint(address to, string memory uri, uint256 tokenId) public {
+    function safeMint(address to, string memory uri, uint256 tokenId) public onlyOwner {
         require(tokenId <= 5, "Token outside of range");
         _safeMint(to, tokenId);
         _setTokenURI(tokenId, uri);

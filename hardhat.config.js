@@ -33,12 +33,13 @@ module.exports = {
         process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
     },
     localhost: {
-      chainId: 31337
+      chainId: 31337,
+      // accounts: [""]
     },
-    matic: {
-      url: "",
-      accounts: [""]
-    }
+    // matic: {
+    //   url: "",
+    //   accounts: [""]
+    // }
   },
   gasReporter: {
     enabled: process.env.REPORT_GAS !== undefined,

@@ -27,7 +27,7 @@ export class StartComponent implements OnInit {
       this.toastr.success('Account connected!', 'Success!');
       this.router.navigate(['/mint']);
     } catch(error) {
-      this.toastr.error(error as string, 'Error!');
+      this.toastr.error('An error occured while connecting an account', 'Error!');
     }
   }
 

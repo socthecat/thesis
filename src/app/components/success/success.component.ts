@@ -45,7 +45,7 @@ export class SuccessComponent implements OnDestroy, OnInit {
 
       return uri;
     } catch (error) {
-      this.toastr.error(error as string);
+      this.toastr.error('An error occured while fetching the token URI.');
 
       return "Couldn't fetch the token URI :(";
     }

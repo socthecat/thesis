@@ -53,7 +53,7 @@ export class SendFormComponent implements OnInit {
       this.toastr.success('Diploma succesfully sent!');
       this.router.navigate(['/success']);
     } catch(error) {
-      this.toastr.error(error as string);
+      this.toastr.error('An error occured while sending.');
     }
   }
 

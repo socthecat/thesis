@@ -62,7 +62,7 @@ export class MintFormComponent implements OnInit, OnDestroy {
       this.toastr.success('Diploma succesfully minted!');
       this.router.navigate(['/send']);
     } catch (error) {
-      this.toastr.error(error as string);
+      this.toastr.error('An error occured while minting');
     }
   }
 
