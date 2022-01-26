@@ -35,6 +35,10 @@ module.exports = {
     localhost: {
       chainId: 31337
     },
+    matic: {
+      url: "",
+      accounts: [""]
+    }
   },
   gasReporter: {
     enabled: process.env.REPORT_GAS !== undefined,

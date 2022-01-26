@@ -1,4 +1,5 @@
-/* You can add global styles to this file, and also import other style files */
+$very-light-blue: #9cc7ff;
+
 @media only screen and (min-width: 1000px) {
     h3 {
         font-size: 3vw;
@@ -134,7 +135,7 @@
     button,
     input[type="submit"] {
         height: 50px;
-        width: 240px;
+        width: 330px;
         font-size: 25px;
     }
     form {
@@ -179,20 +180,20 @@ h3 {
     color: #eaeaea;
     position: relative;
     text-decoration: underline;
-    text-decoration-color: #61a5ff;
+    text-decoration-color: $very-light-blue;
     text-align: center;
     margin-bottom: 1.5vw;
 }
 h3:before {
     content: "";
-    background-color: #9cc7ff;
+    background-color: $very-light-blue;
     position: absolute;
     transform: skew(-3deg, -20deg) rotate(15deg);
     mix-blend-mode: soft-light;
 }
 h3:after {
     content: "!";
-    color: #9cc7ff;
+    color: $very-light-blue;
 }
 input[type="text"],
 input[type="password"] {
@@ -208,13 +209,12 @@ input[type="password"]:focus {
 }
 button,
 input[type="submit"] {
-    background-color: #61a5ff;
+    background-color: $very-light-blue;
     border: 0;
     border-radius: 100vw;
     color: #131d52;
     align-self: center;
     cursor: pointer;
-    text-shadow: 0 0 10px #00295e;
 }
 button:active,
 input[type="submit"]:active {

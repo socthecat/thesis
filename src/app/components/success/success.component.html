@@ -4,13 +4,13 @@
       Congratulations! You have just succesfully minted a diploma NFT and sent it to your student.
   </p>
   <p>
-      Token was succesfully sent from <a href="">{{ collegeAddress }}</a> to <a href="">{{ studentAddress }}</a>
+      The token was succesfully sent from <a href="">{{ collegeAddress }}</a> to <a href="">{{ studentAddress }}</a>
   </p>
   <p *ngIf="tokenURI$ | async as tokenURI; else loadingBlock">
     Token URI: {{ tokenURI }}
   </p>
 
-  <button (click)="backToMint()">Back to minting stage</button>
+  <button (click)="backToMint()">Back to mint</button>
 </section>
 
 <ng-template #loadingBlock>
