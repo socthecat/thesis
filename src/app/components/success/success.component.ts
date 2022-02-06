@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ContractsService } from 'src/app/services/contracts.resolver';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'cw-success',
@@ -9,7 +10,7 @@ import { ContractsService } from 'src/app/services/contracts.resolver';
   styleUrls: ['./success.component.scss']
 })
 export class SuccessComponent implements OnDestroy, OnInit {
-  tokenURI$: Promise<string>;
+  tokenURI$: Promise<any>;
 
   constructor(
     private contractsService: ContractsService,
@@ -29,6 +30,14 @@ export class SuccessComponent implements OnDestroy, OnInit {
     return this.contractsService.tokenData.value?.studentAddress || '';
   }
 
+  get tokenId(): number {
+    return this.contractsService.tokenData.value?.tokenId as number;
+  }
+
+  get contractAddress(): string {
+    return environment.CONTRACT_ADDRESS;
+  }
+
   ngOnDestroy(): void {
     this.contractsService.tokenData.next(null);
   }
@@ -37,13 +46,13 @@ export class SuccessComponent implements OnDestroy, OnInit {
     this.router.navigate(['/mint']);
   }
 
-  async getTokenURI(): Promise<string> {
+  async getTokenURI(): Promise<any> {
     try {
-      const uri: string = await this.contractsService.contract.tokenURI(
+      const uri = await this.contractsService.contract.tokenURI(
         this.contractsService.tokenData.value?.tokenId
       );
 
-      return uri;
+      return JSON.parse(uri);
     } catch (error) {
       this.toastr.error('An error occured while fetching the token URI.');
 

@@ -35,7 +35,7 @@ export class MintFormComponent implements OnInit, OnDestroy {
   }
 
   get metadataURI(): string {
-    return `${environment.CONTENT_ID}/${this.form.getRawValue().uri}.jpg`;
+    return `${environment.METADATA_CONTENT_ID}/${this.form.getRawValue().uri}.json`;
   }
 
   ngOnInit(): void {
