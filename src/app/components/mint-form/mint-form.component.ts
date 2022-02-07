@@ -22,6 +22,7 @@ export class MintFormComponent implements OnInit, OnDestroy {
   form: FormGroup;
   checkMinted$: Subscription;
   loading: boolean;
+  formValue: string | null;
 
   constructor(
     private contractsService: ContractsService,
@@ -36,6 +37,10 @@ export class MintFormComponent implements OnInit, OnDestroy {
 
   get metadataURI(): string {
     return `${environment.METADATA_CONTENT_ID}/${this.form.getRawValue().uri}.json`;
+  }
+
+  get imageContentId(): string {
+    return environment.IMAGE_CONTENT_ID;
   }
 
   ngOnInit(): void {
@@ -86,8 +91,10 @@ export class MintFormComponent implements OnInit, OnDestroy {
           this.form.get('uri')?.setValue(null);
           this.toastr.info('This diploma was already issued. Please select another one');
           this.form.setErrors({'owned': true});
+          this.formValue = null;
         } else {
           this.form.setErrors(null);
+          this.formValue = value.uri;
         }
       }
     });

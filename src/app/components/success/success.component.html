@@ -8,23 +8,11 @@
       The token was succesfully sent from <a href="">{{ collegeAddress }}</a> to <a href="">{{ studentAddress }}</a>
   </p>
   
-  <ng-container *ngIf="tokenURI$ | async as tokenURI; else loadingBlock">
-    <h4>Your NFT metadata</h4>
-    <p>
-      Link to the image: {{ tokenURI.image }};
-    </p>
-    <p>
-      Name: {{ tokenURI.name }};
-    </p>
-    <p>
-      Description: {{ tokenURI.description }};
-    </p>
-    <p>
-      Token ID: {{ tokenId }}
-    </p>
-    <a class="open-sea-link"
-       href="https://testnets.opensea.io/assets/mumbai/{{ contractAddress }}/{{ tokenId }}">View it on OpenSea</a>
-  </ng-container>
+  <p *ngIf="tokenURI$ | async as tokenURI; else loadingBlock">
+    Token URI: {{ tokenURI }}
+  </p>
+  <a class="open-sea-link"
+     href="https://testnets.opensea.io/assets/mumbai/{{ contractAddress }}/{{ tokenId }}">View it on OpenSea</a>
 
   <button (click)="backToMint()">Back to mint</button>
 </section>

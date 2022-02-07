@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ContractsService } from 'src/app/services/contracts.resolver';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'cw-send-form',
@@ -19,8 +20,12 @@ export class SendFormComponent implements OnInit {
     private router: Router
   ) { }
 
-  get metadataURI(): string {
-    return this.contractsService.tokenData.value?.metadataURI || '';
+  get tokenId(): number {
+    return this.contractsService.tokenData.value?.tokenId as number;
+  }
+
+  get imageContentId(): string {
+    return environment.IMAGE_CONTENT_ID;
   }
 
   ngOnInit(): void {

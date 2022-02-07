@@ -161,6 +161,7 @@ app-root {
     width: 100vw;
     display: flex;
     flex-direction: column;
+    overflow-x: hidden;
 }
 cw-start,
 cw-install-metamask,
@@ -262,6 +263,10 @@ input[disabled],
 select[disabled] {
     opacity: .5;
     cursor: default;
+}
+img {
+    max-height: 70vh;
+    object-fit: contain;
 }
 @supports (-ms-ime-align: auto) {
     h3:before {

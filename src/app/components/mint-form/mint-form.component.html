@@ -1,4 +1,6 @@
 <form [formGroup]="form" (ngSubmit)="mint()">
+  <img *ngIf="formValue" src="https://gateway.pinata.cloud/ipfs/{{ imageContentId }}/{{ formValue }}.jpg" alt="Diploma" />
+  <img *ngIf="!formValue" src="https://gateway.pinata.cloud/ipfs/QmaghhRHkTpJm943eDg5XxAirwQ5f1ttKT3gTELh9uDy5Y?preview=1" alt="Placeholder" />
   <label for="uri">Diploma ID</label>
   <select formControlName="uri" id="uri" [disabled]="loading">
     <option *ngFor="let id of possibleIds; let i = index" [value]="id">

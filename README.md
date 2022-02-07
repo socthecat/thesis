@@ -1,70 +1,29 @@
-# NftApp
+# Diploma Issuing Thing
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.4.
+**Diploma Issuing Thing** is a web3 dApp built around the concept of issuing diplomas/certificates to students as a way to prove that they indeed have the qualifications they claim to have.
 
-## Development server
+First, a diploma/certificate is minted to the institution's address (which is also the contract's owner), then it can be sent to the student's wallet. After this, the transaction is complete.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+You can check this project out live: (a link will be here)
 
-## Code scaffolding
+## Viewing the project locally
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+First, install all of the dependencies using `npm ci`.
 
-## Build
+### Deploying the smart contract
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+1. Run `npx hardhat compile`.
+2. Open another terminal and run `npx hardhat node`. This needs to run in the background all the time.
+3. Install MetaMask. Switch to the localhost network.
+4. Import a wallet from the `npx hardhat node` terminal into MetaMask.
+5. Go to hardhat.config.js, copy the private key from the same wallet and paste it into the `accounts` field in the `localhost` object.
+6. In MetaMask, go to Settings -> Networks -> Localhost and change the chain id to 31337. [Here's why you should do this](https://github.com/MetaMask/metamask-extension/issues/10290).
+7. Run `npx run scripts/deploy.js --network localhost`.
 
-## Running unit tests
+### Deploying the frontend
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+This project uses [Angular CLI](https://github.com/angular/angular-cli) version 13.1.4.
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
-
-# Advanced Sample Hardhat Project
-
-This project demonstrates an advanced Hardhat use case, integrating other tools commonly used alongside Hardhat in the ecosystem.
-
-The project comes with a sample contract, a test for that contract, a sample script that deploys that contract, and an example of a task implementation, which simply lists the available accounts. It also comes with a variety of other tools, preconfigured to work with the project code.
-
-Try running some of the following tasks:
-
-```shell
-npx hardhat accounts
-npx hardhat compile
-npx hardhat clean
-npx hardhat test
-npx hardhat node
-npx hardhat help
-REPORT_GAS=true npx hardhat test
-npx hardhat coverage
-npx hardhat run scripts/deploy.js
-node scripts/deploy.js
-npx eslint '**/*.js'
-npx eslint '**/*.js' --fix
-npx prettier '**/*.{json,sol,md}' --check
-npx prettier '**/*.{json,sol,md}' --write
-npx solhint 'contracts/**/*.sol'
-npx solhint 'contracts/**/*.sol' --fix
-```
-
-# Etherscan verification
-
-To try out Etherscan verification, you first need to deploy a contract to an Ethereum network that's supported by Etherscan, such as Ropsten.
-
-In this project, copy the .env.example file to a file named .env, and then edit it to fill in the details. Enter your Etherscan API key, your Ropsten node URL (eg from Alchemy), and the private key of the account which will send the deployment transaction. With a valid .env file in place, first deploy your contract:
-
-```shell
-hardhat run --network ropsten scripts/deploy.js
-```
-
-Then, copy the deployment address and paste it in to replace `DEPLOYED_CONTRACT_ADDRESS` in this command:
-
-```shell
-npx hardhat verify --network ropsten DEPLOYED_CONTRACT_ADDRESS "Hello, Hardhat!"
-```
+1. Install Angular globally using `npm install -g @angular/cli`.
+2. Run `ng serve`.
+3. Navigate to `http://localhost:4200/`.

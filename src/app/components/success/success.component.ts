@@ -10,7 +10,7 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./success.component.scss']
 })
 export class SuccessComponent implements OnDestroy, OnInit {
-  tokenURI$: Promise<any>;
+  tokenURI$: Promise<string>;
 
   constructor(
     private contractsService: ContractsService,
@@ -46,13 +46,13 @@ export class SuccessComponent implements OnDestroy, OnInit {
     this.router.navigate(['/mint']);
   }
 
-  async getTokenURI(): Promise<any> {
+  async getTokenURI(): Promise<string> {
     try {
       const uri = await this.contractsService.contract.tokenURI(
         this.contractsService.tokenData.value?.tokenId
       );
 
-      return JSON.parse(uri);
+      return uri;
     } catch (error) {
       this.toastr.error('An error occured while fetching the token URI.');
 
