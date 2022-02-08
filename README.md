@@ -4,7 +4,7 @@
 
 First, a diploma/certificate is minted to the institution's address (which is also the contract's owner), then it can be sent to the student's wallet. After this, the transaction is complete.
 
-You can check this project out live: (a link will be here)
+You can check this project out live: https://diploma-issuing.netlify.app/. Note that you can use it only if you're the contract owner.
 
 ## Viewing the project locally
 
